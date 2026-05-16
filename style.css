@@ -1,0 +1,445 @@
+/* ===========================
+   WSU Student Portal - style.css
+
+   =========================== */
+
+/* --- Basic Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Body --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: orangered;
+    color: #222;
+    font-size: 15px;
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: #222222;
+    padding: 0 24px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: orangered;
+    color: #222222;
+}
+
+/* --- Page Wrapper --- */
+.page-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 16px;
+}
+
+/* --- Page Heading --- */
+.page-heading {
+    font-size: 20px;
+    color: #222222;
+    margin-bottom: 18px;
+    font-weight: bold;
+    
+    
+}
+
+/* --- Card / Box --- */
+.card {
+    background: rgb(223, 61, 2);
+    border: 1px solid rgb(250, 96, 40);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgb(3, 1, 0);
+}
+
+                                         /* --- log in page  --- */
+/* --- log in page Form Label --- */
+
+label,
+.select-label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 12px;
+}
+
+/* --- Input and Select --- */
+input::placeholder{
+    color: rgb(206, 203, 203);
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgb(250, 143, 104);
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: rgb(160, 47, 6);
+    color: #e9e6e6;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #1a3a5c;
+    box-shadow: 0 0 20px rgb(255, 125, 77);
+}
+
+/* --- Button (login) --- */
+.btn-login {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    background-color: #066279;
+    box-shadow: 0 0 10px #5298dd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.btn-login:hover {
+    background-color: rgb(19, 168, 39);
+    box-shadow: 0 0 15px rgb(78, 250, 101)
+}
+
+/* ===== CUSTOM SELECT (details/summary dropdown) ===== */
+
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.custom-select[open] .select-box {
+    border-color: #1a3a5c;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #222222;
+    background-color: #f18212;
+    
+}
+
+.select-box {
+    list-style: none;
+    padding: 10px 36px 10px 12px;
+    border: 1px solid rgb(70, 23, 6);
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgb(158, 50, 11);
+    box-shadow: 0 0 20px rgb(253, 135, 92);
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.select-box::-webkit-details-marker { display: none; }
+
+.select-box::after {
+    content: "▾";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666262;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.select-options {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #7a2101;
+    box-shadow: 0 0 15px #7a2101;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #f18212;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.select-options li a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #1f1c1c;
+}
+
+.select-options li:last-child a {
+    border-bottom: none;
+}
+
+.select-options li a:hover {
+    background-color: #e8f0fa;
+    color: #1a3a5c;
+}
+
+/* Semester sections hidden by default */
+.sem-section {
+    display: none;
+}
+
+/* Show a semester section when it is the URL target */
+.sem-section:target {
+    display: block;
+}
+
+/* ===== CLOSE / BACK LINK ===== */
+
+.close-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #8d9096;
+    box-shadow: 0 0 10px rgb(255, 209, 193);
+    border-radius: 4px;
+    background: #222222;
+}
+
+.close-link:hover {
+    background-color: rgb(19, 168, 39);
+    box-shadow: 0 0 15px rgb(78, 250, 101);
+    color: #222222;
+}
+
+/* ===== LOGIN PAGE ===== */
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: orangered;
+}
+
+.login-box {
+    background: rgb(223, 61, 2);
+    border: 1px solid rgb(253, 115, 65);
+    box-shadow: 0 0 20px rgb(37, 11, 1);
+    border-radius: 10px;
+    padding: 36px 32px;
+    width: 360px;
+}
+
+.login-logo img {
+    width: 93px;
+    height: 90px;
+    border-radius: 55%;
+    box-shadow: 0 0 15px rgb(245, 151, 120);
+    display: block;
+    margin: 0 auto 14px auto;
+}
+
+.login-uni-name {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #066f81;
+    margin-bottom: 3px;
+}
+
+.login-uni-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #222222c4;
+    margin-bottom: 22px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #793419;
+    margin: 16px 0;
+}
+
+/* ===== HOME / PROFILE PAGE ===== */
+
+.profile-photo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgb(247, 106, 59);
+    box-shadow: 0 0 20px rgb(59, 17, 2);
+    display: block;
+    margin: 0 auto 12px auto;
+    object-fit: cover;
+}
+
+.profile-name {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 4px;
+}
+
+.profile-id {
+    text-align: center;
+    font-size: 14px;
+    color: #222222;
+    margin-bottom: 18px;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid rgb(121, 41, 12);
+    font-size: 14px;
+}
+
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.profile-label {
+    color: #222222;
+    font-weight: bold;
+}
+
+/* ===== TABLE (Courses) ===== */
+
+.table-wrap {
+    overflow-x: auto;
+    border: 3px solid #06152c;
+    border-radius: 6px;
+    margin-top: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+thead {
+    background-color: #222222;
+    color: white;
+}
+
+thead th {
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 13px;
+}
+
+tbody tr {
+    border-bottom: 2px solid #06152c;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #f5f8fc;
+}
+
+tbody td {
+    padding: 10px 14px;
+}
+
+.tc {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+    color: #222222;
+}
+
+/* Semester title inside the table section */
+.sem-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 4px;
+}
+
+/* ===== ABOUT PAGE ===== */
+
+.about-text {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #222222;
+    margin-bottom: 18px;
+}
+
+.contact-row {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 2px solid #250808;
+    font-size: 14px;
+}
+.contact-row a{
+    color: #222222;
+    text-decoration: none;
+    font-size: 17px;
+}
+.contact-row a:hover{
+    color: #edf0f3;
+    background-color: #222222;
+}
+.contact-row:last-child {
+    border-bottom: none;
+}
+
+.contact-key {
+    font-weight: bold;
+    color: #1f65af;
+    width: 80px;
+    flex-shrink: 0;
+}
+
+/* ===== UTILITY ===== */
+
+.hidden {
+    display: none;
+}
